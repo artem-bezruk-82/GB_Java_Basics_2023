@@ -9,7 +9,6 @@
 // Предложить хотя бы одно решение или сообщить, что его нет.
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Main
 {
