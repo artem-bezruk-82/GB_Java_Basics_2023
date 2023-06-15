@@ -10,20 +10,31 @@ public class Main
 {
     public static void main(String[] args)
     {
-        int num = GetConsoleInputInt("Please enter integer value");
-        System.out.println(num);
+        int num = GetConsoleInputInt("Please enter integer value", 0);
+        System.out.printf("sum(1...%d) = %d\n", num, GetTriangularNumber(num));
+        System.out.printf("%d! = %d\n", num, GetFactorial(num));
     }
 
     public static int GetFactorial(int value)
     {
-
-
-        return 1;
+        int factorial = 1;
+        for (int i = 1; i <= value; i++)
+            factorial *= i;
+        return factorial;
     }
 
-    public static int GetConsoleInputInt(String requestText)
+    public static int GetTriangularNumber(int value)
     {
-        return GetConsoleInputInt(requestText, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        int triangularNumber = 0;
+        for (int i = 0; i <= value; i++)
+            triangularNumber += i;
+        return triangularNumber;
+    }
+
+
+    public static int GetConsoleInputInt(String requestText, int startRange)
+    {
+        return GetConsoleInputInt(requestText, startRange, Integer.MAX_VALUE);
     }
 
     public static int GetConsoleInputInt(String requestText, int startRange, int endRange)
