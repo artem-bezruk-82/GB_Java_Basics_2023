@@ -9,18 +9,39 @@
 //3) Найти максимальное значение
 //4) Найти среднее значение
 
-public class Main {
-    public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Random;
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
+public class Main
+{
+    public static void main(String[] args)
+    {
+        ArrayList<Integer> values = new ArrayList<>();
+        Random random = new Random();
+        int size = random.nextInt(15,30);
+        for (int i = 0; i < size; i++)
+        {
+            values.add(random.nextInt(100));
         }
+        System.out.println(values);
+        values.removeIf(value -> (value % 2 == 0));
+        System.out.println(values);
+        if (!values.isEmpty())
+        {
+            values.sort(Comparator.naturalOrder());
+            int sum = 0;
+            for (int i = 0; i < values.size(); i++)
+            {
+                sum += values.get(i);
+            }
+            System.out.printf(String.format("Max value: %d; Min Value: %d; Avg value: %f",
+                    values.get(values.size() -1), values.get(0), (double) sum/values.size()));
+        } else
+        {
+            System.out.println("The list is empty");
+        }
+
+
     }
 }
