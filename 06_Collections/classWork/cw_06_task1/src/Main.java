@@ -2,7 +2,7 @@
 // Урок 6. Хранение и обработка данных ч3: множество коллекций Set
 
 // Задание 1
-// Написать метод, который заполнит массив из 1000 элементов случайными цифрами от 0 до 24
+// Написать метод, который заполнит массив из 1000 элементов случайными цифрами от 0 до 50
 // Вычислить процент уникальных значений в массиве
 
 import java.util.HashSet;
@@ -14,7 +14,7 @@ public class Main
     public static void main(String[] args)
     {
         int[] arr = new int[1000];
-        FillInArrayRandomly(arr, 0, 24);
+        FillInArrayRandomly(arr, 0, 50);
         double uniqueValuesPercentage = 100 * (double)GetNumberOfUniqueValues(arr) / arr.length;
         System.out.printf("Unique values percentage: %f", uniqueValuesPercentage);
 
@@ -23,10 +23,9 @@ public class Main
     public static int GetNumberOfUniqueValues(int[] array)
     {
         Set<Integer> set = new HashSet<>();
-        for (int i = 0; i < array.length; i++)
-        {
-            set.add(array[i]);
-        }
+        for (int j : array)
+            set.add(j);
+
         return set.size();
     }
 
